@@ -1,0 +1,7 @@
+<p [ngStyle]="{color:isAdmin ? 'red' : 'black'}">Hello!</p>
+
+<button type="button">View</button>
+<button type="button" [hidden]="this.isAdmin === false">Edit</button>
+
+<button type="button" (click)="isAdmin = !isAdmin">Admin</button>
+
