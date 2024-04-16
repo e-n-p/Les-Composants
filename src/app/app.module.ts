@@ -14,6 +14,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SearchMovieComponent } from './search-movie/search-movie.component';
 import { DeveloperComponent } from './developer/developer.component';
 import { SkillComponent } from './skill/skill.component';
+import { CreateOnomatopiaComponent } from './create-onomatopia/create-onomatopia.component';
+import { DisplayOnomatopiaComponent } from './display-onomatopia/display-onomatopia.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { SkillComponent } from './skill/skill.component';
     SignUpComponent,
     SearchMovieComponent,
     DeveloperComponent,
-    SkillComponent
+    SkillComponent,
+    CreateOnomatopiaComponent,
+    DisplayOnomatopiaComponent
   ],
   imports: [
     BrowserModule,

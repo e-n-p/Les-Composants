@@ -1,0 +1,7 @@
+<p>display-onomatopia works!</p>
+
+<li *ngFor="let ono of onomatopeiaList">
+    <ul>{{ono}}</ul>
+</li>
+
+<app-create-onomatopia (onomatopiaEvent)="onReceiveNewOnomatopia($event)"></app-create-onomatopia>
