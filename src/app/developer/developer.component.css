@@ -1,0 +1,9 @@
+.developer-container {
+    background-color: paleturquoise;
+    padding: 1rem;
+    width: 30%;
+}
+
+.developer-container>p{
+    margin: 0.5rem 0 0;
+}

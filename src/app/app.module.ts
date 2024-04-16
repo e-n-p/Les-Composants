@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SearchMovieComponent } from './search-movie/search-movie.component';
+import { DeveloperComponent } from './developer/developer.component';
+import { SkillComponent } from './skill/skill.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { SearchMovieComponent } from './search-movie/search-movie.component';
     UserProfileComponent,
     MenuComponent,
     SignUpComponent,
-    SearchMovieComponent
+    SearchMovieComponent,
+    DeveloperComponent,
+    SkillComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+.skill-container {
+    border-style: dashed;
+    border-width: 1px;
+    background-color: palegreen;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width:40%;
+    margin: 0.5rem;
+}
+
+.skill-container>p{
+    font-size: small;
+    margin: 0;
+}

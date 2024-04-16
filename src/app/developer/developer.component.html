@@ -1,0 +1,13 @@
+<div class="developer-container">
+    <h4>Firstname: {{this.coder.firstName}}</h4>
+    <h4>Lastname: {{this.coder.lastName}}</h4>
+    <p>Age: {{this.coder.age}}</p>
+    <p>Gender: {{this.coder.gender}}</p>
+    <p>Bio: {{this.coder.bio}}</p>
+    <app-skill
+        *ngFor="let skill of this.coder.skills"
+        [name]="skill.name"
+        [logo]="skill.logo"
+        [site]="skill.site"
+    ></app-skill>
+</div>
