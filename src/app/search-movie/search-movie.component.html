@@ -1,0 +1,45 @@
+<form *ngIf="searchMoviesForm" [formGroup]="searchMoviesForm" #movieForm="ngForm" (ngSubmit)="onSubmit()">
+    <div formGroupName="identifiers">
+        <div>
+            <label for="identifier">Identifier: </label>
+            <input name="identifier" type="text" formControlName="identifier">
+        </div>
+        <div>
+            <label for="title">Title: </label>
+            <input name="title" type="text" formControlName="identifier" >
+        </div>
+        <div *ngIf="searchMoviesForm.controls['identifiers'].errors && movieForm.submitted">
+            <span *ngIf="searchMoviesForm.controls['identifiers'].errors?.['isRequired']">One of the two fields 'Identifier' or 'Title' must be filled in</span>
+        </div>
+
+    </div>
+
+    <div>
+        <label for="mediaType">Media type: </label>
+        <select name="mediaType" type="text" formControlName="mediaType" >
+            <option *ngFor="let media of this.mediaTypes"
+                value="{{media}}">{{media}}</option>
+        </select>
+    </div>
+
+    <div>
+        <div formGroupName="yearInfo">
+            <label for="Release year">Release year: </label>
+            <input name="releaseYear" type="number" formControlName="releaseYear">
+        </div>
+        <div *ngIf="searchMoviesForm.controls['yearInfo'].errors && movieForm.submitted">
+            <span *ngIf="searchMoviesForm.controls['yearInfo'].errors?.['required']">This field is required</span>
+            <span *ngIf="searchMoviesForm.controls['yearInfo'].errors?.['boundsError']">The year must be between {{minMaxYears[0]}} and {{minMaxYears[1]}}</span>
+        </div>
+
+    </div>
+
+    <div>
+        <label for="length">Length: </label>
+        <select name="length" type="text" formControlName="length">
+            <option *ngFor="let length of this.lengthTypes"
+                value="{{length}}">{{length}}</option>
+        </select>
+    </div>
+    <button type="submit">Submit</button>
+</form>
