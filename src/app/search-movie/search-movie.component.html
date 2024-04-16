@@ -23,15 +23,12 @@
     </div>
 
     <div>
-        <div formGroupName="yearInfo">
-            <label for="Release year">Release year: </label>
-            <input name="releaseYear" type="number" formControlName="releaseYear">
-        </div>
-        <div *ngIf="searchMoviesForm.controls['yearInfo'].errors && movieForm.submitted">
-            <span *ngIf="searchMoviesForm.controls['yearInfo'].errors?.['required']">This field is required</span>
-            <span *ngIf="searchMoviesForm.controls['yearInfo'].errors?.['boundsError']">The year must be between {{minMaxYears[0]}} and {{minMaxYears[1]}}</span>
-        </div>
-
+        <label for="Release year">Release year: </label>
+        <input name="releaseYear" type="number" formControlName="releaseYear">
+    </div>
+    <div *ngIf="searchMoviesForm.controls['releaseYear'].errors && movieForm.submitted">
+        <span *ngIf="searchMoviesForm.controls['releaseYear'].errors?.['required']">This field is required</span>
+        <span *ngIf="searchMoviesForm.controls['releaseYear'].errors?.['boundsError']">The year must be between {{minMaxYears[0]}} and {{minMaxYears[1]}}</span>
     </div>
 
     <div>

@@ -14,17 +14,14 @@ export class SearchMovieComponent implements OnInit{
     searchMoviesForm!:FormGroup;
 
 
-    constructor(private formBuilder: FormBuilder) {  //constructor should init first
+    constructor(private formBuilder: FormBuilder) {
       this.searchMoviesForm = this.formBuilder.group({
         identifiers: this.formBuilder.group({
           identifier: [''],
           title: [''],
         }),
-        yearInfo: this.formBuilder.group({  //tried nesting as a way round the error
-          releaseYear: ['']
-        }),
         mediaType: ['Series'],
-        // releaseYear: [0],
+        releaseYear: [''],
         length: ['']
       });
     }
@@ -32,13 +29,11 @@ export class SearchMovieComponent implements OnInit{
     ngOnInit(): void {
       const date = new Date();
       this.minMaxYears.push(date.getFullYear());
-      console.log("<--!!!-->");
       console.log(this.searchMoviesForm);
-      console.log("<--!!!-->");
       this.searchMoviesForm.get('identifiers')!.setValidators([this.isRequiredValidator('identifier','title')]);
-      this.searchMoviesForm.get('yearInfo.releaseYear')!.setValidators([Validators.required, this.rangeDateValidator(this.minMaxYears[0], this.minMaxYears[1])]);
+      this.searchMoviesForm.get('releaseYear')!.setValidators([Validators.required, this.rangeDateValidator(this.minMaxYears[0], this.minMaxYears[1])]);
       this.searchMoviesForm.get('identifiers')!.updateValueAndValidity();
-      this.searchMoviesForm.get('yearInfo.releaseYear')!.updateValueAndValidity();
+      this.searchMoviesForm.get('releaseYear')!.updateValueAndValidity();
       
       this.searchMoviesForm.patchValue({
         length: "Short"
@@ -51,10 +46,7 @@ export class SearchMovieComponent implements OnInit{
 
     rangeDateValidator(minDate:number, maxDate:number): ValidatorFn{
       return (control: AbstractControl): ValidationErrors | null => {
-        const current_value1:number = control.get(['yearInfo', 'releaseYear'])!.value;
-        const current_value2:number = control.get('yearInfo.releaseYear')!?.value;
-        console.log('>>>>>>' + current_value1);
-        console.log('>>>>>>' + current_value2);
+        const current_value1:number = control.value;
 
         if ( !((minDate <= current_value1) && (current_value1 <= maxDate)) ) {
           return { 'boundsError': {min: minDate, max: maxDate} }
